@@ -1,0 +1,121 @@
+/**
+    After working on the backend on the project then i can make i look 
+    good.
+*/
+
+/* Styling for the picture page */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-size: 120%;
+    /* background: #f8f8ff; */
+    background: url(https://www.digitalplatforms.co.za/wp-content/uploads/2015/11/Website-Design-Background.jpg);
+}
+
+#picture-div {
+    width: 40vw;
+    height: 75vh;
+    margin:  50px auto;
+    text-align: center;
+    /* border: 1px solid black; */
+}
+
+#video-div {
+    width: 100%;
+    height: 50%;
+
+    /* border: 1px dotted red; */
+}
+
+#canvas-wrap {
+    width: 100%;
+    height: 50%;
+
+    /* border: 1px dotted gold; */
+}
+
+
+#canvas{
+    width: 50%;
+    height: 100%;;
+
+    /* border: 1px double red; */
+}
+
+#video-wrap {
+    width: 100%;
+    height: 90%;
+
+    /* border: 1px double red; */
+}
+
+#video {
+    width: 75%;
+    height: 100%;
+    margin: 0 auto;
+
+    /* border: 2px double black; */
+}
+
+/* Styling for the user logout and picture taking */
+
+.user-menu {
+    margin-left: 2px;
+}
+
+.user {
+    border: none;
+}
+
+.user-menu {
+    position: relative;
+    display: block;
+}
+
+/*  Drop down conent */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white ;
+    min-width: 160px;
+    z-index: 1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+    color : black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.user-menu:hover .dropdown-content {
+    display: block;
+}
+
+.user-menu:hoverb user{
+    background-color: white;
+}
+
+.user-pic {
+    width: 80%;
+    height: 250px;
+    overflow-x: hidden;
+    float: left;
+    border: 1px solid black;
+    margin: 60px;
+    text-align: center;
+}
+
+.taken-pic {
+    width: 40%;
+    height: 100%;
+    float: left;
+}
