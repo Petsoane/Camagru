@@ -7,7 +7,7 @@ require_once("database.class.php");
 
 class User extends DB
 {
-    private static $instance = null;
+    private static $instance;
 
     /** construct()
      * Creates a new database connection.
@@ -53,6 +53,7 @@ class User extends DB
         return $errors;
     }
 
+
     /** register_user(*)
      * Logs information about a new user.
      */
@@ -62,6 +63,7 @@ class User extends DB
         $sql = "INSERT INTO users (username, firstName, lastName, email, passwd)
             VALUES(?,?,?,?,?)";
         $this->run($sql, array($username, $firstName, $lastName, $email, $password));
+        $this->store_user_info($username, $firtName, $lastName, $email);
     }
 
     /** login_user($user, $password)
@@ -129,11 +131,35 @@ class User extends DB
         return ($ret['results']);
     }
 
+    /** update(*)
+     * Updates all the information for the given table,
+     * it works on updating based on the id of a single user.
+     */
     public function update($table, $field, $value, $username)
     {
         $id = $this->get_user_id($username);
-        $sql = "UPDATE ".$table." SET ".$field."=".$value." WHERE id=".$id;
-        $this->run($sql);
+        $sql = 'UPDATE '. $table.' SET '.$field.'=? WHERE id='.$id;
+        echo "<br>".$sql."<br>";
+        $this->run($sql, array($value));
+    }
+
+    /** get_info($table, $username)
+     * 
+     * This function ,for now, is used to get the information of a
+     * specific user from the database.
+     * 
+     * !• Thought •!
+     *  Try to change the way this function works.
+     *  Instead of the function getting infomation from the a single table,
+     *  make be able to get any amount of data from any table specified.
+     */
+    public function get_info($table, $username){
+        # Get the data id.
+        $id = $this->get_user_id($username);
+        $sql = "SELECT * FROM ".$table." WHERE id=".$id;
+        
+        $ret = $this->run_ret($sql);
+        return ($ret['results']);
     }
 
     /** send_mail(*)

@@ -66,7 +66,13 @@
             if($user->send_mail($email, $body, $subject)){
                 if (count($errors) == 0){
                     $user->register_user($username, $name, $lastName, $email, $password_1);
+                    
+                    # Store the user information
                     $_SESSION['username'] = $username;
+                    $_SESSION['name'] = $name;
+                    $_SESSION['lastName'] = $lastName;
+                    $_SESSION['email'] = $email;
+                    
                     $_SESSION['verify'] = $ver_code;
                     $_SESSION['success'] = "You are now logged in from registration page";
                     header("location: server/verify.php?code=$ver_code");

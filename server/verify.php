@@ -11,7 +11,7 @@
        
        #update the verified field.
        $user->update("users", "verified", 1, $_SESSION['username']);
-       header("location: ../index.php");
+       header("location: index.php");
     }
     else {
         echo "The email sending will be finalised at the end of this project<br";
