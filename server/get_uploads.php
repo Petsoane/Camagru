@@ -11,13 +11,14 @@ $user = User::start_connection('camagru');
 $posts = $user->get_posts($_SESSION['username']);
 
 foreach($posts as $value){
+    $img_name = $value['image_name'];
     $img = 'server/uploads/';
     $img .= $value['image_name'];
     echo "<div class='post'>
      <img class='image' src=$img> 
      <div class='buttons'>
-        <button class='button like'>Like</button>
-        <button class='button comment'>Comment</button> 
+        <a href='server/like.php?name=$img_name'><button class='button like'>Like</button></a>
+        <a href='server/comment.php?name=$img_name'><button class='button comment'>Comment</button></a>
      </div>
      </div>";
 }

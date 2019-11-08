@@ -109,6 +109,8 @@ class User extends DB
         $this->run($sql, array($id, $image_name));
     }
 
+
+
     /** get_posts($username)
      * This functions gets all the post in the post table.
      */
@@ -162,6 +164,27 @@ class User extends DB
         return ($ret['results']);
     }
 
+    public function is_image_liked($image_id, $user_id)
+    {
+        $sql = "SELECT * FROM likes WHERE image_id=? && user_id=?";
+        $ret = $this->run_ret($sql, array($image_id, $user_id));
+
+        if ($ret['count'] == 0){
+            return FALSE;
+        }
+        return TRUE;
+    }
+
+    public function get_image_id($image_name)
+    {
+        $sql = "SELECT id FROM posts WHERE image_name=?";
+        $ret = $this->run_ret($sql, array($image_name));
+
+        foreach($ret['results'] as $result){
+            return $result['id'];
+        }
+    }
+
     /** send_mail(*)
      * Is used to send the email to the specified reciever.
      */
@@ -174,5 +197,60 @@ class User extends DB
         
         $retval = mail ($to, $subject, $message, $header);
         return ($retval);
+    }
+
+    /**like(*)
+     * Posts a like to the database.
+     */
+    public function like($username, $image_name)
+    {
+        $user_id = $this->get_user_id($username);
+        $image_id = $this->get_image_id($image_name);
+
+        if ($this->is_image_liked($image_id, $user_id) === FALSE){
+            $sql = 'INSERT INTO likes (image_id, user_id)
+            VALUES(?, ?)';
+            $this->run($sql, array($image_id, $user_id));
+        }
+        else{
+            $sql = "DELETE FROM likes WHERE user_id=? && image_id=?";
+            $this->run($sql, array($user_id, $image_id));
+        }
+    }
+
+    /** Comment(*)
+     * Posts a comment to the database.
+     */
+    public function comment($username, $image_name, $comment)
+    {
+        $user_id = $this->get_user_id($username);
+        $image_id = $this->get_image_id($image_name);
+
+        $sql = "INSERT INTO comments (user_id, image_id, comment)
+        VALUE(?, ?, ?)";
+        $this->run($sql, array($user_id, $image_id, $comment));
+    }
+
+    /** get_image_user(*)
+     * Gets the owner of the image given.
+     * 
+     * @return: the user_name
+     */
+    public function get_image_user($image_name)
+    {
+        $image_id = $this->get_image_id($image_name);
+        $sql = "SELECT * FROM posts WHERE id=? limit 1";
+        $ret = $this->run_ret($sql, array($image_id));
+        $user_id = 1;
+        foreach($ret['results'] as $result){
+            $user_id = $result['user_id'];
+            break;
+        }
+        $sql = "SELECT username FROM users WHERE id=?";
+        $ret = $this->run_ret($sql, array($user_id));
+
+        foreach ($ret['results'] as $result){
+            return $result['username'];
+        }
     }
 }

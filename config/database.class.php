@@ -22,14 +22,14 @@ class DB
         $this->password = 'theophylus';
         $this->dbname = $dbname;
         $this->host = 'localhost';
-        $this->dsn = 'mysql:host='.$this->host . ';dbname=' . $this->dbname;
+        $this->dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
         $this->pdo = new PDO($this->dsn, $this->username, $this->password);
     }
 
     /** create_databse($dbname)
      *  is used to create a database even when the object is not created.
      */
-    public static function create_database($dbname='camagru')
+    public static function create_database($dbname = 'camagru')
     {
         $sql = "CREATE DATABASE IF NOT EXISTS`$dbname`";
         $pdo = new PDO("mysql:host=localhost", 'root', 'theophylus');
@@ -40,7 +40,7 @@ class DB
         // $stmt->execute([$dbname]);
         // echo "<br><br>The databse is creates successfully<br><br>";
         self::create_tables($dbname);
-        $pdo = NULL;
+        $pdo = null;
     }
 
     /** create_tables($dbname)
@@ -62,23 +62,37 @@ class DB
                 user_id INT UNSIGNED NOT NULL,
                 image_name varchar(255) NOT NULL
             )";
+        $sql_likes = "CREATE TABLE IF NOT EXISTS likes(
+                image_id INT UNSIGNED NOT NULL,
+                user_id INT UNSIGNED NOT NULL
+            )";
+        $sql_comments = "CREATE TABLE IF NOT EXISTS comments(
+                id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                user_id INT UNSIGNED NOT NULL,
+                image_id INT UNSIGNED NOT NULL,
+                comment varchar(255)
+            )";
 
-        $pdo = new PDO("mysql:host=localhost;dbname=".$dbname, 'root', 'theophylus');
+        $pdo = new PDO("mysql:host=localhost;dbname=" . $dbname, 'root', 'theophylus');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         try {
-            $pdo = new PDO("mysql:host=localhost;dbname=".$dbname, 'root', 'theophylus');
+            $pdo = new PDO("mysql:host=localhost;dbname=" . $dbname, 'root', 'theophylus');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $stmt = $pdo->prepare($sql_users);
             $stmt->execute();
             $stmt = $pdo->prepare($sql_posts);
             $stmt->execute();
+            $stmt = $pdo->prepare($sql_likes);
+            $stmt->execute();
+            $stmt = $pdo->prepare($sql_comments);
+            $stmt->execute();
         } catch (PDOException $e) {
             echo "There was an error creating the tables," . $e->getMessage();
             die("Fatal");
         }
-        $pdo =  NULL;
+        $pdo = null;
     }
 
     public function run_ret($sql, $params = null)
@@ -100,7 +114,8 @@ class DB
         }
     }
 
-    public function run($sql, $params=NULL){
+    public function run($sql, $params = null)
+    {
         try {
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute($params);

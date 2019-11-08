@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Comment</title>
+        <meta charset='UTF-8'>
+        <style rel='stylesheet' href='../style/style.css'></style>
+    </head>
+    <body>
+        <div class='content'>
+            <img id="image" src="<?php echo 'uploads/'.$image_name ?>" id="comment_form">
+            <form method="post" action="comment.php">
+                <textarea name="comment" form="comment_form">Enter comment</textarea>
+                <input type='submit' name='submit'>
+            </form>
+        </div>
+    </body>
+</html>
