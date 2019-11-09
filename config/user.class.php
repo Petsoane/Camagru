@@ -141,7 +141,7 @@ class User extends DB
     {
         $id = $this->get_user_id($username);
         $sql = 'UPDATE '. $table.' SET '.$field.'=? WHERE id='.$id;
-        echo "<br>".$sql."<br>";
+        // echo "<br>".$sql."<br>";
         $this->run($sql, array($value));
     }
 
@@ -250,6 +250,20 @@ class User extends DB
         $ret = $this->run_ret($sql, array($user_id));
 
         foreach ($ret['results'] as $result){
+            return $result['username'];
+        }
+    }
+
+    public function get_email_user($user_email)
+    {
+        $sql = 'SELECT username FROM users where email=?';
+        $ret  = $this->run_ret($sql, array($user_email));
+
+        if ($ret['count'] == 0){
+            return (NULL);
+        }
+        
+        foreach($ret['results'] as $result){
             return $result['username'];
         }
     }

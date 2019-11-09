@@ -55,7 +55,7 @@
                 }
             }
         }
-
+        
         if (count($errors) == 0){
             # Change the new information.
             if ($t_username !== $username){ // work on the username

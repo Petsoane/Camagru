@@ -7,10 +7,9 @@
     </head>
     <body>
         <div class='content'>
-            <img id="image" src="<?php echo 'uploads/'.$image_name ?>" id="comment_form">
-            <form method="post" action="comment.php">
-                <textarea name="comment" form="comment_form">Enter comment</textarea>
-                <input type='submit' name='submit'>
+            <form method="post" action="forgot_pass.php">
+                <input type="text" name='email' placeholder="Enter the email used to create the account">
+                <input type='submit' name='send_link'>
             </form>
         </div>
     </body>
