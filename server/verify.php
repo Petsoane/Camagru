@@ -5,15 +5,14 @@
 
     # varify the email addr
     echo $_GET['code'];
-    echo '<br>'.$_SESSION['verify'];
-    if (isset($_GET['code']) && ($_SESSION['verify'] === $_GET['code'])){
+    echo $_SESSION['username'];
+    if (isset($_GET['code'])){
        $user = User::start_connection('camagru');
-       
        #update the verified field.
-       $user->update("users", "verified", 1, $_SESSION['username']);
-       header("location: index.php");
+       $user->verify_user($_GET['code'], $_SESSION['username']);
+       header("location: ../index.php");
     }
     else {
-        echo "The email sending will be finalised at the end of this project<br";
+        echo "Please check your email andclick on the link provided<br>";
     }
 ?>

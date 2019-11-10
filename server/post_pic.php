@@ -23,7 +23,6 @@
 
             # Save the file and add to the database.
             if (file_put_contents($path, $data)){
-                echo "<br>The picture was saved successfull<br><br>";
                 $user->add_image($file_name, $username);
             } else {
                 echo "There was a problem with saving the file content.";

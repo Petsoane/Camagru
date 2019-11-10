@@ -56,7 +56,8 @@ class DB
                 lastName varchar(255) NOT NULL,
                 email varchar(100) NOT NULL,
                 passwd varchar(255) NOT NULL,
-                verified INT(6) NOT NULL DEFAULT '0'
+                verified INT(6) NOT NULL DEFAULT '0',
+                code varchar(255) NOT NULL
             )";
         $sql_posts = "CREATE TABLE IF NOT EXISTS posts(
                 id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

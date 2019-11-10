@@ -15,7 +15,6 @@ if (!isset($_SESSION['username'])){
         <script src="https://kit.fontawesome.com/16cfdb264b.js" crossorigin="anonymous"></script>
     </head>  
     <body>
-        <h2 style='float: left;'>Let me see your teeth</h2>
         <div class='user-menu'>
             <i class="fas fa-users-cog user"></i>
             

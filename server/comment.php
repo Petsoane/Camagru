@@ -17,8 +17,8 @@
             $image_owner = $user->get_image_user($image_name);
             $result = $user->get_info('users', $image_owner);
             $email = $result[0]['email'];
-            $subject = "Appoligies and Like";
-            $message = "You sad sick social slave just got a like";
+            $subject = "Comments ( AKA: They are talking about you )";
+            $message = "Hope your ear is itching someone commented on your pic.";
             $user->send_mail($email, $message,$subject);
             header("location: ../index.php");
         }

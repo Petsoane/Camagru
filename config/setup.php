@@ -57,13 +57,19 @@ class User extends DB
     /** register_user(*)
      * Logs information about a new user.
      */
-    public function register_user($username, $firstName, $lastName, $email, $password)
+    public function register_user($username, $firstName, $lastName, $email, $password, $ver_code)
     {
         $password = md5($password);
-        $sql = "INSERT INTO users (username, firstName, lastName, email, passwd)
-            VALUES(?,?,?,?,?)";
-        $this->run($sql, array($username, $firstName, $lastName, $email, $password));
-        $this->store_user_info($username, $firtName, $lastName, $email);
+        $sql = "INSERT INTO users (username, firstName, lastName, email, passwd, code)
+            VALUES(?,?,?,?,?,?)";
+        $this->run($sql, array($username, $firstName, $lastName, $email, $password, $ver_code));
+    }
+
+    public function verify_user($ver_code, $username){
+        $sql = "UPDATE users SET verified=1 where username=? && code='$ver_code'";
+        echo $sql.'<br>';
+        $ret = $this->run($sql, array($username));
+        echo "The user was verified<br>";
     }
 
     /** login_user($user, $password)
@@ -81,6 +87,13 @@ class User extends DB
 
         if ($ret['count'] != 1) {
             array_push($errors, "Wrong password/username combo");
+        }
+        elseif ($ret['count'] >= 1){
+            foreach($ret['results'] as $result){
+                if ($result['verified'] != 1){
+                    array_push($errors, "Your registered but please check your email and ");
+                }
+            }
         }
         return ($errors);
     }
@@ -114,10 +127,10 @@ class User extends DB
     /** get_posts($username)
      * This functions gets all the post in the post table.
      */
-    public function get_posts($username)
+    public function get_posts()
     {
         $sql = "SELECT * FROM posts";
-        $ret = $this->run_ret($sql, array($username));
+        $ret = $this->run_ret($sql);
         return ($ret['results']);
     }
 
@@ -254,6 +267,9 @@ class User extends DB
         }
     }
 
+    /** get_email_user($useremail)
+     * Gets the username of the user who owns the email.
+     */
     public function get_email_user($user_email)
     {
         $sql = 'SELECT username FROM users where email=?';
@@ -266,5 +282,30 @@ class User extends DB
         foreach($ret['results'] as $result){
             return $result['username'];
         }
+    }
+
+    /** delete_img($img_name)
+     * This function will delete an image from the database,
+     */
+    public function delete_img($img_name)
+    {
+        $sql = 'DELETE FROM posts WHERE image_name=?';
+        $this->run($sql, array($img_name));
+    }
+
+    public function count()
+    {
+        $sql = 'SELECT * FROM posts'; 
+        $ret = $this->run_ret($sql);
+
+        return ($ret['count']);
+    }
+
+    public function get_range($offset, $limit=1)
+    {
+        $sql = "SELECT * FROM posts LIMIT ".$offset.",".$limit;
+        echo "---------------------$sql------------------<br>";
+        $ret = $this->run_ret($sql);
+        return ($ret);
     }
 }

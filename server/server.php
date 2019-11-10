@@ -59,13 +59,13 @@
             # send verification email.
             $ver_code = md5(rand());
             $_SESSION['code'] = $ver_code;
-            $baseUrl =  "https://localhost/camaguru/server/server.php?code=$ver_code";
+            $baseUrl =  "http://localhost:8080/camagru/server/verify.php?code=$ver_code";
             $subject = "Varify email";
             $body = "<p> Please open the link to varify - $baseUrl</p>";
             
             if($user->send_mail($email, $body, $subject)){
                 if (count($errors) == 0){
-                    $user->register_user($username, $name, $lastName, $email, $password_1);
+                    $user->register_user($username, $name, $lastName, $email, $password_1, $ver_code);
                     
                     # Store the user information
                     $_SESSION['username'] = $username;
@@ -75,7 +75,7 @@
                     
                     $_SESSION['verify'] = $ver_code;
                     $_SESSION['success'] = "You are now logged in from registration page";
-                    header("location: server/verify.php?code=$ver_code");
+                    header("location: server/verify.php?");
                 }
             }
             else {

@@ -12,8 +12,15 @@
     $post = $user->get_user_posts($username);
 
     foreach($post as $value){
+        $img_name = $value['image_name'];
         $img_path = $path;
         $img_path .= $value['image_name'];
-        echo "<img class='taken-pic' src=$img_path>";
+        echo "
+        <div class='post'>
+     <img class='image' src=$img_path> 
+     <div class='buttons'>
+        <a href='server/delete.php?name=$img_name'><button class='button like'>DELETE</button></a>
+     </div>
+     </div>";
     }
 ?>
