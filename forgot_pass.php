@@ -2,7 +2,7 @@
     # Start session.
     session_start();
 
-    include_once ("config/user.class.php");
+    include_once ("config/setup.php");
     
     # Create a object.
     $user = User::start_connection('camagru');

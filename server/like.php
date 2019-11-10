@@ -1,5 +1,5 @@
 <?php
-    include_once ("../config/user.class.php");
+    include_once ("../config/setup.php");
     session_start();
 
     # check if the user hase logged in

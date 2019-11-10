@@ -1,14 +1,14 @@
 <?php 
     session_start();
 
-    if (!isset($_SESSION['username'])){
-        $_SESSION['msg'] = "You must log in first";
-        header("location: camagru/login.php");
-    }
+    // if (!isset($_SESSION['username'])){
+    //     $_SESSION['msg'] = "You must log in first";
+    //     header("location: camagru/login.php");
+    // }
     if (isset($_GET['logout'])){
         session_destroy();
         unset($_SESSION['username']);
-        header("location: ../camagru/login.php");
+        header("location: ./camagru/login.php");
     }
 ?>
 
@@ -27,6 +27,7 @@
                 <a href="index.php?logout=true"> Logout </a>
                 <a href="snap.php">Take A Picture</a>
                 <a href="profile.php">Account</a>
+                <a href="login.php">Login</a>
             </div>
         </div>
         <div class="header">

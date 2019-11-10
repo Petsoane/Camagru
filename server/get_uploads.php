@@ -1,5 +1,5 @@
 <?php
-require_once("config/user.class.php");
+require_once("config/setup.php");
 
 # start by making sure the user is logged in.
 if (!isset($_SESSION['username'])){

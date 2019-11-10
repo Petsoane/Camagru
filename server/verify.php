@@ -1,7 +1,7 @@
 <?php
     # start session
     session_start();
-    require_once "../config/user.class.php";
+    require_once "../config/setup.php";
 
     # varify the email addr
     echo $_GET['code'];

@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    include_once("config/user.class.php");
+    include_once("config/setup.php");
     # create a user.
     $user = User::start_connection('camagru');
     $errors = array();

@@ -1,7 +1,7 @@
 <?php
     # Star session
     session_start();
-    require_once("config/user.class.php");
+    require_once("config/setup.php");
 
     # Initialize variable.
     $name       = "";

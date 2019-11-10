@@ -1,5 +1,5 @@
 <?php
-    include_once ('config/user.class.php');
+    include_once ('config/setup.php');
 
     if (!isset($_SESSION['username'])){
         $_SESSION['msg'] = 'You must login in first, please';

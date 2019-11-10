@@ -15,8 +15,10 @@ if (!isset($_SESSION['username'])){
         <script src="https://kit.fontawesome.com/16cfdb264b.js" crossorigin="anonymous"></script>
     </head>  
     <body>
-            <div class='user-menu'>
+        <h2 style='float: left;'>Let me see your teeth</h2>
+        <div class='user-menu'>
             <i class="fas fa-users-cog user"></i>
+            
             <div class="dropdown-content">
                 <a href="login.php"> Logout </a>
                 <a href="index.php">Back Home</a>
@@ -47,6 +49,7 @@ if (!isset($_SESSION['username'])){
         <div class="user-pic">
             <?php include('server/get_user_pics.php'); ?>
         </div>
+        <footer
     </body>
     <script src="js/take_pic.js"></script>
     <script src="js/upload.js"></script>

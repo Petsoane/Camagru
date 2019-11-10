@@ -24,6 +24,7 @@ class DB
         $this->host = 'localhost';
         $this->dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
         $this->pdo = new PDO($this->dsn, $this->username, $this->password);
+        $this->pdo->SetAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
     /** create_databse($dbname)

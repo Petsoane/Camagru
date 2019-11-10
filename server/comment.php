@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once("../config/user.class.php");
+    include_once("../config/setup.php");
 
     if (!isset($_SESSION['username'])){
         header("location: ../login.php");

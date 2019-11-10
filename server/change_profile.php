@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once "config/user.class.php";
+    require_once "config/setup.php";
 
     if (!isset($_SESSION['username'])){
         $_SESSION['msg']= 'login first';
