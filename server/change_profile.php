@@ -14,8 +14,10 @@
     $firstName = $user_info[0]['firstName'];
     $lastName = $user_info[0]['lastName'];
     $email = $user_info[0]['email'];
+    $get_email = $user_info[0]['send_email'];
     $errors = array();
 
+    echo $get_email.'<br>';
     # Check if the user is trying to change the user information.
     if (isset($_POST['update_info'])){
         # Get get changes to the email. These will be considered temporary.
@@ -25,6 +27,8 @@
         $t_email = $_POST['email'];
         $t_password1 = $_POST['password_1'];
         $t_password2 = $_POST['password_2'];
+        $t_send_email = !isset($_POST['send_email']) ? '0' : $_POST['send_email'];
+        echo "this is the vvalue of this update $t_send_email<br>";
 
         # validate the user information
         if (empty($t_firstName)) { array_push($errors, "Name is required"); }
@@ -74,6 +78,10 @@
             if ($t_email !== $email){ // change the email
                 $user->update('users', 'email', $t_email, $_SESSION['username']);
                 $email = $t_email;
+            }
+            if ($t_send_email != $get_email){ //  make sure that the user cannot recieve the email if not set
+                $user->update("users", 'send_email', $t_send_email  , $_SESSION['username']);
+                $get_mail = $t_send_email;
             }
         }
     }

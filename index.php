@@ -24,7 +24,6 @@
 
     # get the count of posts/
     $post_count = $user->count();
-    echo $post_count.'<br>';
 
     # Calculate the number of pages needed to hold all pictures.
     $page_lim = ceil($post_count / $limit);
@@ -92,6 +91,9 @@
                   <a href="<?php if ($post_count < $limit){ echo "#";} else { $prev = $current_page >= 1? $current_page - 1: $current_page;  echo "index.php?page=$prev";}?>">&laquo; previous</a>
                   <a href="#" class='active'><?php echo $current_page; ?></a>
                   <a href="<?php if ($post_count < $limit) { echo '#';} else { $next = $current_page < $page_lim? $current_page + 1: $current_page; echo "index.php?page=$next";}?>">&raquo; next</a>
+                </div>
+                <div class='copyright'>
+                    <i class="far fa-copyright"></i>
                 </div>
             </div>
         </footer>

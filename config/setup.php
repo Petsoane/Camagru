@@ -207,7 +207,25 @@ class User extends DB
         $header .= "Cc:afgh@somedomain.com \r\n";
         $header .= "MIME-Version: 1.0\r\n";
         $header .= "Content-type: text/html\r\n";
-        
+
+        # check if the user wants to recieve an email for weverythin;g.
+        $sql = 'SELECT * FROM users WHERE email=?';
+        $ret = $this->run_ret($sql, array($to));
+        if ($ret['results'][0]['send_email'] == 1){
+        echo 'The email was sent';
+        $retval = mail ($to, $subject, $message, $header);
+        return ($retval);
+        }
+        return (NULL);
+    }
+    public function send_ver($to, $message, $subject)
+    {
+        $header = "From:abc@somedomain.com \r\n";
+        $header .= "Cc:afgh@somedomain.com \r\n";
+        $header .= "MIME-Version: 1.0\r\n";
+        $header .= "Content-type: text/html\r\n";
+
+        # check if the user wants to recieve an email for weverythin;g.
         $retval = mail ($to, $subject, $message, $header);
         return ($retval);
     }
@@ -304,7 +322,6 @@ class User extends DB
     public function get_range($offset, $limit=1)
     {
         $sql = "SELECT * FROM posts LIMIT ".$offset.",".$limit;
-        echo "---------------------$sql------------------<br>";
         $ret = $this->run_ret($sql);
         return ($ret);
     }

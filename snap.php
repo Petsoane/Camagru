@@ -28,11 +28,11 @@ if (!isset($_SESSION['username'])){
             <!-- Stream video via the webcam. -->
             <div id="video-div">
                 <div id="video-wrap">
-                    <video id="video" autoplay playsinline></vided>
+                    <video id="video" autoplay playsinline></video>
                 </div>
                 <!-- trigger canvas web api -->
                 <div class="controller">
-                    <button  id="snap">Capture</button>
+                    <button id="snap">Capture</button>
                 </div>
             </div>
             <!-- The div for the picture -->
@@ -43,13 +43,24 @@ if (!isset($_SESSION['username'])){
                     <input id="inp_img" name="img" type='hidden' value="">
                     <input id="bt_upload" type="submit" name="submit" value="upload">
                 </form>
+                <div class="stickers">
+                    <img src='server/stickers/cool.png' id="cool_img" hidden >
+                    <button id='cool'>Add_sticker</button>
+                    <select id='select_sticker'>
+                        <option value='none'>Chose a sticker</option>
+                        <option value='server/stickers/cool.png'>cool</option>
+                        <option value='server/stickers/Im_different.png'>IMDIFF</option>
+                        <option value='server/stickers/squidab.png'>SQUIDAB</option>
+                        <option value='server/stickers/Yeah_broh.png'>YEAH</option>
+                    </select>
+                </div>
             </div>
         </div>
         <div class="user-pic">
             <?php include('server/get_user_pics.php'); ?>
         </div>
-        <footer
     </body>
     <script src="js/take_pic.js"></script>
     <script src="js/upload.js"></script>
+    <script src="js/add_sticker.js"></script>
 <html>

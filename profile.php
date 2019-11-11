@@ -48,6 +48,9 @@
             <div class="input-group">
                 <button type="submit" class="btn" name="update_info">UPDATE</button>
             </div>
+            <div class='input-grop'>
+                <label><input type='checkbox' <?php if ($get_email == 1) {echo 'checked="1"';} ?> name='send_email' value='1'>Do you want to recieve an email</label>
+            </div>
         </form>
     </body>
 </html>
