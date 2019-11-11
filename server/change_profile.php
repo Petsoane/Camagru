@@ -28,7 +28,6 @@
         $t_password1 = $_POST['password_1'];
         $t_password2 = $_POST['password_2'];
         $t_send_email = !isset($_POST['send_email']) ? '0' : $_POST['send_email'];
-        echo "this is the vvalue of this update $t_send_email<br>";
 
         # validate the user information
         if (empty($t_firstName)) { array_push($errors, "Name is required"); }
