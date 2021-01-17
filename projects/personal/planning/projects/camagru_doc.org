@@ -1,0 +1,43 @@
+#+title: Camagru Documentation
+#+description: Video outline for Camagru
+
+* Initial introduction
+  Give your names and the project you are going to present
+
+  * What is the project requirements
+    State the requirements and limits for the project.
+  * Read give information on the tools that have to be used for this project.
+    * PHP
+    * HTML
+    * PDO
+  * Explain all the feature requirements for the project.
+    * The common features
+    * user features
+    * Gallery functons
+    * Editing features
+   
+* Middle Section
+  Start section for web development tools, database management system breakdown
+  and documentation break down.
+
+  * Describe the problems faced when working data.
+  * Give reasons why DBMS are a good fix for most if not all probems faced.
+  * Types of DBMS and their pros and cons
+  * Give tools that are you going to use and how they make the following easier:
+    * Data management
+    * Web development
+    * Project management as a whole
+  * Go through the documentation and point out the main features and factors.
+  * Show of some of the functions in your project and explain what they do.
+  * Go through the choices of the structure of your project and the code structure as well
+
+* Second last section
+  Start section on the cost/benefit of the whole project.
+
+  * Design a cost/benefit analysis for the project
+  * Make sure to describe what are the repercussions not delivering the work on time
+    - This may also include a more accurate examples of work of work environments.
+
+* Final section
+  Show case the projects and go through some of the code base and see whats what.
+

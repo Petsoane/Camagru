@@ -1,0 +1,48 @@
+#+title: Pressentations
+#+description: Notes and steps to be taken for my pressentations
+
+A presentation on the software *planning and design* of camagru and
+matcha
+
+
+* General Guidelines
+  Some points to keep in mind while making your presentation
+
+** Research
+   Plan and outline all the topics involved in the making of the specific
+   project
+
+** Find tools and products for web-development
+   Describe all the tools that are involved in web development process and
+   motivate the choices you made for each tool that is required to complete
+   your project.
+
+** DBMS
+   Outline pros and cons of database management systems and give reasons
+   why database management systems can solve all these problems, while also
+   describing types of database management systems and give their strengths
+   and weaknesses.
+
+** Documentation
+   Create documention for both projects describing what tools and requirements
+   are need to complete the project.
+   
+** Cost/Benefit
+   Create a cost/benefit analysis for both projects and explain the
+   blow back of delivering an element of work late.
+   
+** Showcase your presentation
+   Record your presentation and make sure that is follows logical flow while
+   keeping in mind the target audience.
+   Keep the presentation short but also detailed.
+
+* Checklist
+  - [ ] Create Documentation for each project.
+    This should also include identification fo resources and tools required
+    to complete the project.
+  - [ ] Outline the flow of the presentation
+    Meaning make an outline of what is going to be presented before actually
+    recording the applicatin.
+  - [ ] Showcse all points in the general guidlines
+  - [ ] Quality check the project with the marking sheet
+  - [ ] Submit the project.

@@ -18,8 +18,8 @@ class DB
     # Childern
     protected function __construct($dbname)
     {
-        $this->username = 'root';
-        $this->password = 'theophylus';
+        $this->username = 'user';
+        $this->password = 'theophylus123';
         $this->dbname = $dbname;
         $this->host = 'localhost';
         $this->dsn = 'mysql:host=' . $this->host . ';dbname=' . $this->dbname;
@@ -33,7 +33,7 @@ class DB
     public static function create_database($dbname = 'camagru')
     {
         $sql = "CREATE DATABASE IF NOT EXISTS`$dbname`";
-        $pdo = new PDO("mysql:host=localhost", 'root', 'theophylus');
+        $pdo = new PDO("mysql:host=localhost", 'user', 'theophylus123');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $pdo->exec($sql);
@@ -76,11 +76,11 @@ class DB
                 comment varchar(255)
             )";
 
-        $pdo = new PDO("mysql:host=localhost;dbname=" . $dbname, 'root', 'theophylus');
+        $pdo = new PDO("mysql:host=localhost;dbname=" . $dbname, 'user', 'theophylus123');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         try {
-            $pdo = new PDO("mysql:host=localhost;dbname=" . $dbname, 'root', 'theophylus');
+            $pdo = new PDO("mysql:host=localhost;dbname=" . $dbname, 'user', 'theophylus123');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             $stmt = $pdo->prepare($sql_users);

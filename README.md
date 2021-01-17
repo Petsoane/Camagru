@@ -1,7 +1,7 @@
 # Camagru
 A small photo editing web application.
 
-# General instructions and requiremens
+# General features
     * No errors, warning, or log line in console when running the webapp. (with exceptions)
     * Only PHP for the server-side code.
     * HTML, CSS, JavaScript for the client side.
@@ -12,7 +12,7 @@ A small photo editing web application.
     * Any web server can be used
     * The web app should be compatible with Firefox (>= 41) and chrome (>=46)
 
-# Madatory features
+# Features
     * Common features
         The web app should be structured in some way (even though it is not mandatory to do so), have a decent page
         layout that displays correctly on mobile devies as well have an adopted layout on small resolutions.
@@ -59,3 +59,6 @@ A small photo editing web application.
 # Required tools
     * PHP
     * SQL
+    * html
+    * css
+    

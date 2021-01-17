@@ -12,7 +12,7 @@
     # Create a user object.
     $user = User::start_connection('camagru');
 
-    # Define constants for the limit of the paginnation.
+    # Define constants for the limit of the pagination.
     $limit = 10;
     # get the page number from the link.
     if (isset($_GET['page'])){

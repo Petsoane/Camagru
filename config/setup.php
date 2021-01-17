@@ -159,10 +159,10 @@ class User extends DB
     }
 
     /** get_info($table, $username)
-     * 
+     *
      * This function ,for now, is used to get the information of a
      * specific user from the database.
-     * 
+     *
      * !• Thought •!
      *  Try to change the way this function works.
      *  Instead of the function getting infomation from the a single table,
@@ -172,7 +172,7 @@ class User extends DB
         # Get the data id.
         $id = $this->get_user_id($username);
         $sql = "SELECT * FROM ".$table." WHERE id=".$id;
-        
+
         $ret = $this->run_ret($sql);
         return ($ret['results']);
     }

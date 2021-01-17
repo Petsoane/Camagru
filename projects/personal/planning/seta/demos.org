@@ -1,0 +1,28 @@
+#+title:  Demonstration outline
+#+description: Outline for things need to validate
+
+* Guidelines
+  
+** Source code management
+   Meaning try to use some sort of system to keep track of your project.
+   
+** HTML Understandin
+   Demonstrate that you understand HTML by showing of features of your website
+   that make it easier to use for the end-user and easy to maintain for the
+   developer.
+
+** Are the requirements met?
+   Show that both camagru and matcha meet the given specifications, in our
+   case showcase that both projects will be validated.
+
+   This will include how well it keeps up with stress tests and how well
+   it will keeps up with a users expectations.
+   
+** Showcase each projects database setup
+   Demonstrate how your application is using the database to effectively manage
+   the data required by your application.
+   This should include how well the application uses the features of the
+   DBMS system (sql in our case)
+   
+** Test both projects
+   Test the projects to make sure that both projects are up to certain standups.

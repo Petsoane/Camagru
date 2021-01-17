@@ -1,0 +1,55 @@
+#+title: Match Documentation
+#+description: Documentation for the matcha project.
+
+This project is about creating a dating website.
+
+* Features
+  * Uses micro-frameworks removing the need for dependency to external
+    third party software
+  * Uses a custom User management system for data management of the use.
+  * All passwords are encrypted before being stored to the database.
+  * Simple interaction with intuitive interface.
+  * Easily see who has been 'checking you out'
+  * Users are matched based on their location.
+  * Users have a 'Fame Rating', used for calculation you overall eligability
+    of being matched.
+
+* Matching
+  Upon account creation, user will be required to add additional information before
+  they can interact with other user.
+
+  - Users are firstly matched based on their ~sexual~ preferences.
+  - The second factor is their location. Each 'matching' will , by default, be
+    in a specific distant range to from the user searching for a partner, making
+    it easier for both parties to meet up and interact.
+  - A users fame rating is used to filter candidates.
+    * The fame rating need to have a good unbiased way of calculating fame rating.
+  - The users interest will be used to further narrow the search for the perfect match.
+
+ 
+* Manual Matching
+  This is when the user searches for specific qualities He/She feels are being
+  neglected, or they just want to try new things.
+
+  Some of the things include:
+     - Searching by location
+       Maybe you are going on vacation and you are open to finding live in
+       new places
+     - Searching by specific age.
+     - Searching by specific fame rating.
+       Just because you don't have the best fame rating does not mean that you
+       have settle, and give.
+
+       
+* User profiles
+  Only verified users can view other profiles.
+
+  Users that are matched with you can be easily found in your profile.
+
+  
+* Chatting
+  Two users can chat, only if they both 'like' each other. Meaning a user can only be
+  matched to another only if they both like each others profiles.
+
+  Chat happens in real time and most of the history is saved. This is done for both
+  security purposes and simplicity of data management.

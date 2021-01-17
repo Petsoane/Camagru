@@ -1,0 +1,46 @@
+#+title: Project Outline
+#+description: The outline of all of my projects and todos and notes
+
+* Seta
+  Certification for SETA.
+
+  * [[file:seta/POE.org][POE]]
+  * [[file:seta/pressentations.org][Pressentations]]
+  * [[file:seta/demos.org][Demos]]
+  * [[file:seta/logbook.org][Logbook]]
+  * [[file:seta/report.org][Report]]
+
+* Cloud-1
+  This is the Last project I have to do for the second semester.
+
+  - [ ] Go Through the marking sheet.
+  - [ ] Create an outline of the whole projects.
+
+  Apparently this thing s finished.... All I need to to do now is to mark it and be dne with it.
+
+* Cpp Bootcamp
+
+* Camagru
+
+  This project is based on php and uses phpmyadmin and the lamp stack to work properly
+  
+** Setting up the LAMP stack
+   
+*** Installing Apache server
+    * Install =apache2= and =apache2-utils=.
+    * make sure that the server is running on your local =ip address=.
+    * if not use enable it and start it as a =background service=.
+
+*** Install MariaDB
+    * Install mariadb-server and client.
+      On my ubuntu machine there is specific version of mariadb that has to be installed
+      as it is part of the dependencies of the other.
+    * Make sure that mariadb is up and running.
+    * set up the root password and press y for all other questions
+
+*** Install and configure php
+    This step is for setting up the php environment.
+
+    
+* Matcha
+

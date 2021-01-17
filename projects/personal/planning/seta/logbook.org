@@ -1,0 +1,10 @@
+#+title: Logbook
+
+The logbook is an account of the work I did during the WeThinkCode course,
+It takes into account:
+    * The time spent the on campus or doing course work
+    * Time spent the applying the knowledge and skills tested.
+    * Time spent applying the knowledge and skills and gaining experience.
+    * Time spent completing an activity is extremely important and should be signed
+      off by Mentor/Supervisor.
+    * The logbook should show that you have spent 1340 hours gaining knowledge.
